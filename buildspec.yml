@@ -26,9 +26,9 @@ phases:
   post_build:
     commands:
       - echo Tagging image...
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - docker tag my-angular-image:latest 804033740036.dkr.ecr.us-east-1.amazonaws.com/my-angular-image:latest
       - echo Pushing image...
-      - docker push $ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - docker push 804033740036.dkr.ecr.us-east-1.amazonaws.com/my-angular-image:latest
 
 artifacts:
   files:
