@@ -1,5 +1,6 @@
 # Step 1: Build the Angular app
-FROM node:20-alpine AS build
+FROM public.ecr.aws/docker/library/node:20-alpine
+
 
 WORKDIR /app
 
@@ -11,7 +12,7 @@ COPY . .
 RUN npm run build --prod
 
 # Step 2: Serve the built app using Nginx
-FROM nginx:alpine
+FROM public.ecr.aws/nginx/nginx:alpine
 
 COPY --from=build /app/dist/my-angular-app /usr/share/nginx/html
 
